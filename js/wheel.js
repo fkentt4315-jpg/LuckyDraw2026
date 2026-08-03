@@ -9,6 +9,7 @@ const ctx = canvas.getContext("2d");
 const spinSound = new Audio("assets/sounds/spin.mp3");
 
 spinSound.preload = "auto";
+spinSound.load(); 
 spinSound.loop = true;
 spinSound.volume = 0.5;
 
@@ -327,7 +328,7 @@ function updateAnimation(){
 
         spinning = false;
 
-        rotation = endRotation;
+        rotation = endRotation % 360;
 
         spinSound.pause();
         spinSound.currentTime = 0;
@@ -341,7 +342,7 @@ function updateAnimation(){
 
             location.href="result.html";
 
-        },700);
+        },1200);
 
     }
 
@@ -350,13 +351,9 @@ const startBtn = document.getElementById("start");
 
 startBtn.addEventListener("click", function () {
 
-    console.log("按鈕被按了");
-
-    currentPrize = drawPrize();
-
-    console.log(currentPrize);
-
     if (spinning) return;
+
+    console.log("按鈕被按了");
 
     currentPrize = drawPrize();
 
