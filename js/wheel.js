@@ -411,13 +411,11 @@ function showResult(){
    // ⭐先讓畫面更新
     document.getElementById("resultCard").classList.add("show");
 
-    // ⭐下一個畫面更新週期再播放音效
-    requestAnimationFrame(() => {
-
-        winSound.currentTime = 0;
-        winSound.play().catch(console.error);
-
-    });
+    // 100ms 後再播放音效
+setTimeout(() => {
+    winSound.currentTime = 0;
+    winSound.play().catch(console.error);
+}, 100);
 
 }
 
