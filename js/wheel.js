@@ -356,7 +356,7 @@ function updateAnimation(){
 
     location.href = "result.html";
 
-       },1800);
+       },5000);
     }
 
 }
