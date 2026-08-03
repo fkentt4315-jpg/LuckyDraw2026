@@ -408,18 +408,22 @@ function showResult(){
     document.getElementById("gift").innerHTML =
         currentPrize.prize;
 
-    document.getElementById("resultCard")
-        .classList.add("show");
+   // ⭐先讓畫面更新
+    document.getElementById("resultCard").classList.add("show");
 
-    winSound.currentTime=0;
+    // ⭐下一個畫面更新週期再播放音效
+    requestAnimationFrame(() => {
 
-    winSound.play().catch(()=>{});
+        winSound.currentTime = 0;
+        winSound.play().catch(console.error);
+
+    });
 
 }
 
 document.getElementById("backBtn").onclick=function(){
 
-dstartBtn.disabled = false;
+startBtn.disabled = false;
 
     document.getElementById("resultCard")
         .classList.remove("show");
