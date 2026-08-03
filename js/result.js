@@ -1,7 +1,3 @@
-const winSound = new Audio("assets/sounds/win.mp3");
-
-winSound.volume = 0.8;
-
 const result = JSON.parse(
     localStorage.getItem("drawResult")
 );

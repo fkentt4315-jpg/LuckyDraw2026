@@ -7,11 +7,16 @@ const canvas = document.getElementById("wheelCanvas");
 const ctx = canvas.getContext("2d");
 
 const spinSound = new Audio("assets/sounds/spin.mp3");
+const winSound = new Audio("assets/sounds/win.mp3");
 
 spinSound.preload = "auto";
 spinSound.load(); 
 spinSound.loop = true;
 spinSound.volume = 0.5;
+
+winSound.preload = "auto";
+winSound.load();
+winSound.volume = 0.8;
 
 const centerLogo = new Image();
 
@@ -331,19 +336,27 @@ function updateAnimation(){
         rotation = endRotation % 360;
 
         spinSound.pause();
+
         spinSound.currentTime = 0;
 
-        localStorage.setItem(
-            "drawResult",
+        // 播放中獎音
+        winSound.currentTime = 0;
+        
+        winSound.play().catch(err => {
+          console.log("winSound:", err);
+       });
+
+       localStorage.setItem(
+           "drawResult",
             JSON.stringify(currentPrize)
-        );
+       );
 
-        setTimeout(()=>{
+       // 等音效播放一段時間再跳頁
+       setTimeout(()=>{
 
-            location.href="result.html";
+    location.href = "result.html";
 
-        },1200);
-
+       },1800);
     }
 
 }
