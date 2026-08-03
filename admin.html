@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<title>管理後台</title>
+
+<link rel="stylesheet"
+href="css/style.css">
+
+<link rel="stylesheet"
+href="css/admin.css">
+
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<div class="adminCard">
+
+<h1>
+
+Lucky Draw 管理後台
+
+</h1>
+
+<input
+
+id="adminPwd"
+
+type="password"
+
+placeholder="管理員密碼">
+
+<button
+
+id="login">
+
+登入
+
+</button>
+
+<div id="loginError"></div>
+
+<div id="panel">
+
+<h2>📊 抽獎統計</h2>
+
+<div id="stats"></div>
+
+<hr style="margin:25px 0;">
+
+<h2>
+
+剩餘獎項
+
+</h2>
+
+<table>
+
+<tr>
+
+<th>獎項</th>
+
+<th>剩餘</th>
+
+<th>修改</th>
+
+</tr>
+
+<tbody id="table"></tbody>
+
+</table>
+
+<button id="save">
+
+儲存修改
+
+</button>
+
+<button id="excel">
+
+下載抽獎紀錄
+
+</button>
+
+<button id="reset">
+
+重置活動
+
+</button>
+
+</div>
+
+</div>
+
+<script src="js/storage.js"></script>
+
+<script src="js/admin.js"></script>
+
+</body>
+
+</html>
+
+<h2>
+
+抽獎統計
+
+</h2>
+
+<div id="stats"></div>
+

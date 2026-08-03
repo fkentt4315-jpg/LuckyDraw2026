@@ -1,0 +1,107 @@
+.drawContainer{
+
+width:780px;
+
+height:100vh;
+
+margin:0 auto;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+padding-top:30px;
+
+position:relative;
+
+z-index:10;
+
+}
+
+#wheelContainer{
+
+position:relative;
+
+width: 780px;
+
+height:780px;
+
+margin-top:20px;
+
+}
+
+#wheelCanvas{
+
+width: 780px;
+
+height:780px;
+
+border-radius:50%;
+
+pointer-events:none; 
+
+box-shadow:none;
+
+}
+
+.pointer{
+
+position:absolute;
+
+left:50%;
+
+top:-10px;
+
+transform:translateX(-50%);
+
+width:0;
+
+height:0;
+
+border-left:28px solid transparent;
+
+border-right:28px solid transparent;
+
+border-top:80px solid #ff0000;
+
+filter:
+
+drop-shadow(0 0 8px red);
+
+}
+
+#start{
+
+    display:block;
+
+    width:380px;
+
+    height:90px;
+
+    margin:40px;
+
+    border-radius:50px;
+
+    font-size:40px;
+
+    font-weight:bold;
+
+    position:relative;
+
+    z-index:9999;
+
+    cursor:pointer;
+
+}
+
+.drawContainer .logo{
+
+    width:280px;
+
+    display:block;
+
+    margin:0 auto 15px;
+
+}
