@@ -20,15 +20,6 @@ const img = {
 
 giftImage.src = img[result.prize];
 
-// 延遲一點播放中獎音
-setTimeout(()=>{
-
-    winSound.currentTime = 0;
-
-    winSound.play().catch(()=>{});
-
-},500);
-
 level.innerHTML = result.level;
 
 gift.innerHTML = result.prize;

@@ -339,24 +339,39 @@ function updateAnimation(){
 
         spinSound.currentTime = 0;
 
-        // 播放中獎音
-        winSound.currentTime = 0;
-        
-        winSound.play().catch(err => {
-          console.log("winSound:", err);
-       });
+        localStorage.setItem(
+    "drawResult",
+    JSON.stringify(currentPrize)
+);
 
-       localStorage.setItem(
-           "drawResult",
-            JSON.stringify(currentPrize)
-       );
-
-       // 等音效播放一段時間再跳頁
-       setTimeout(()=>{
+// 播放完成後才跳頁
+winSound.onended = function () {
 
     location.href = "result.html";
 
-       },5000);
+};
+
+winSound.currentTime = 0;
+
+winSound.play().catch(err => {
+
+    console.log("winSound:", err);
+
+    // 如果播放失敗，不要卡住
+    location.href = "result.html";
+
+});
+
+winSound.currentTime = 0;
+
+winSound.play().catch(err => {
+
+    console.log(err);
+
+    // 如果 iPad 播放失敗，也不要卡住
+    location.href = "result.html";
+
+});
     }
 
 }
