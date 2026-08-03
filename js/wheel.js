@@ -344,34 +344,8 @@ function updateAnimation(){
     JSON.stringify(currentPrize)
 );
 
-// 播放完成後才跳頁
-winSound.onended = function () {
+    showResult();
 
-    location.href = "result.html";
-
-};
-
-winSound.currentTime = 0;
-
-winSound.play().catch(err => {
-
-    console.log("winSound:", err);
-
-    // 如果播放失敗，不要卡住
-    location.href = "result.html";
-
-});
-
-winSound.currentTime = 0;
-
-winSound.play().catch(err => {
-
-    console.log(err);
-
-    // 如果 iPad 播放失敗，也不要卡住
-    location.href = "result.html";
-
-});
     }
 
 }
@@ -404,3 +378,56 @@ startBtn.addEventListener("click", function () {
     spinning = true;
 
 });
+
+// ==========================
+// 顯示中獎畫面
+// ==========================
+
+function showResult(){
+
+    startBtn.disabled = true;
+
+    const img={
+
+        "密封杯":"assets/prizes/cup.png",
+
+        "無酒精飲品":"assets/prizes/drink.png",
+
+        "爸氣爆米花":"assets/prizes/popcorn.png",
+
+        "爸氣節專屬徽章":"assets/prizes/badge.png"
+
+    };
+
+    document.getElementById("giftImage").src =
+        img[currentPrize.prize];
+
+    document.getElementById("level").innerHTML =
+        currentPrize.level;
+
+    document.getElementById("gift").innerHTML =
+        currentPrize.prize;
+
+    document.getElementById("resultCard")
+        .classList.add("show");
+
+    winSound.currentTime=0;
+
+    winSound.play().catch(()=>{});
+
+}
+
+document.getElementById("backBtn").onclick=function(){
+
+dstartBtn.disabled = false;
+
+    document.getElementById("resultCard")
+        .classList.remove("show");
+
+    document.body.classList.remove("result-open");
+
+    sessionStorage.removeItem("LuckyDrawUnlock");
+
+    location.href="index.html";
+
+};

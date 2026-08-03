@@ -137,7 +137,9 @@ drop-shadow(0 0 8px red);
 
     visibility:hidden;
 
-    transition:.35s;
+    transition:
+       transform .35s cubic-bezier(.18,.89,.32,1.28),
+    opacity .35s;
 
 }
 
@@ -150,6 +152,14 @@ drop-shadow(0 0 8px red);
     visibility:visible;
 
     transform:translate(-50%,-50%) scale(1);
+
+    body.result-open .overlay{
+
+    background:rgba(0,0,0,.6);
+
+    backdrop-filter:blur(6px);
+
+}
 
 }
 
