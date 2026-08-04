@@ -408,7 +408,8 @@ function showResult(){
     document.getElementById("gift").innerHTML =
         currentPrize.prize;
 
-   // ⭐先讓畫面更新
+    document.body.classList.add("result-open");
+        // ⭐先讓畫面更新
     document.getElementById("resultCard").classList.add("show");
 
     // 100ms 後再播放音效
